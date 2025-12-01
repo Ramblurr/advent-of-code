@@ -1,6 +1,7 @@
 {:deps {local/deps {:local/root "."}
         cprop/cprop {:mvn/version "0.1.21"}}
  :paths ["resources" "script"]
+ :pods {bootleg {:path "./bootleg" :cache false}}
  :tasks {dev               {:doc "Start a local development server" :task (apply clojure "-M:dev:repl/dev" *command-line-args*)}
          badges   {:doc  "Updates README badges with latest puzzle completion stats."
                    :task (exec 'tasks/update-badges)}
@@ -15,8 +16,6 @@
                    :task (exec 'tasks/open-apps)}
          lint     {:doc  "Run clj-kondo over all src/test."
                    :task (shell "clj-kondo --parallel --lint src:test")}
-         outdated {:doc  "Find outdated library versions, and selectively upgrade."
-                   :task (clojure "-M:outdated --upgrade")}
          submit   {:doc  "Submit answer for part & day. -p {1,2} -y YYYY -d D, default today."
                    :task (exec 'tasks/submit)}
          template {:doc  "Create src & test templates for -y YYYY -d D, default today."

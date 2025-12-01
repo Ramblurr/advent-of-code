@@ -13,10 +13,9 @@
 
 (def config (from-env-file ".env"))
 
-
-;; (pods/load-pod "bootleg")
+#_(pods/load-pod "bootleg")
 ;; 'cause nixos
-(pods/load-pod "bootleg-wrapped")
+;;(pods/load-pod "bootleg-wrapped")
 
 (require '[pod.retrogradeorbit.bootleg.utils :refer [convert-to]]
          '[pod.retrogradeorbit.hickory.select :as s])
@@ -83,6 +82,7 @@
         badge (:body (curl/get badge-url {:query-params params}))]
     (spit path badge)))
 
+(require '[clojure.pprint :as pprint])
 (defn update-badges [arg]
   (let [parsed     (-> (str aoc-url "/events")
                        (curl/get headers)
@@ -94,6 +94,8 @@
                         (mapcat :content))
         all-yrs    (mapv str (reverse (range 2015 (inc (Long/valueOf current-year)))))
         yrs->stars (zipmap (conj all-yrs "Total") stars)]
+    (when-not (seq stars)
+      (println "ERROR: No stars found, do you need to refresh your AOC_SESSION?"))
     (run! save-badge yrs->stars)))
 
 (defn open-apps

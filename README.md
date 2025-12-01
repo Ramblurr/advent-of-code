@@ -2,10 +2,15 @@
 
 > Welcome to my Advent of Code solutions in Clojure.
 
+![2025](img/2025.svg)
 ![2023](img/2023.svg)
 ![2022](img/2022.svg)
 
 ![codecov](https://codecov.io/gh/Ramblurr/advent-of-code/branch/main/graph/badge.svg) ![ci](https://github.com/ramblurr/advent-of-code/actions/workflows/workflow.yml/badge.svg)
+
+## 2025
+
+* [Day 01](./src/aoc/2025/day01.clj)
 
 ## 2023
 
