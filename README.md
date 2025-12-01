@@ -45,6 +45,11 @@
 * [Day 15](./src/aoc/2022/day15.clj)
 
 
+## Where are the inputs?
+
+It has come to my attention that the creator of AOC has not freely licensed the puzzle inputs, and has kindly asked (going back years!) that we not post them. So in 2025 I purged all the inputs from this repo.
+
+
 ## Thanks
 
 * Thanks to [@tschady](https://github.com/tschady/) on the Clojurians slack for the babashka tasks
