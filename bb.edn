@@ -1,8 +1,7 @@
 {:deps {local/deps {:local/root "."}
-        cprop/cprop {:mvn/version "0.1.19"}}
+        cprop/cprop {:mvn/version "0.1.21"}}
  :paths ["resources" "script"]
- :tasks {repl-portal  (shell "clojure -A:dev -A:test -M:inspect/portal-cli-cider")
-         repl-term  (shell "clojure -A:test -A:dev -M:repl/cider-refactor")
+ :tasks {dev               {:doc "Start a local development server" :task (apply clojure "-M:dev:repl/dev" *command-line-args*)}
          badges   {:doc  "Updates README badges with latest puzzle completion stats."
                    :task (exec 'tasks/update-badges)}
          clean    {:doc  "Clean all temp build files"
@@ -25,7 +24,7 @@
          new-year {:doc "Create folders for a new year"
                    :task (exec 'tasks/new-year)}
          test     {:doc  "Run test suite, skipping those with 'slow' metadata."
-                   :task (clojure "-M:test -m kaocha.runner --skip-meta :slow ")}
+                   :task (apply clojure "-M:test -m kaocha.runner --skip-meta :slow " *command-line-args*)}
          test-all {:doc  "Run all tests."
                    :task (clojure "-M:test -m kaocha.runner")}
          ci       {:doc "Run the ci!"
