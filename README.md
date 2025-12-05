@@ -12,6 +12,7 @@
 * [Day 01](./src/aoc/2025/day01.clj)
 * [Day 02](./src/aoc/2025/day02.clj)
 * [Day 03](./src/aoc/2025/day03.clj)
+* [Day 04](./src/aoc/2025/day04.clj)
 
 ## 2024
 
